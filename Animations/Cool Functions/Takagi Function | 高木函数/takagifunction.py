@@ -67,11 +67,7 @@ class TakagiFunction(Scene):
         def s(x):
             return min(abs(x - n) for n in range(int(x) - 1, int(x) + 2))
         
- 
-        
-        takagi_function = axes.plot(lambda x : sum(s(2**n * x) / 2**n for n in range(100)), color=RED)
-        
-        
+        takagi_function = axes.plot(lambda x : sum(s(2**n * x) / 2**n for n in range(100)), color=RED)     
         takagi_function_LaTex_two = MathTex(r"\text{T}(x) = \sum_{n=0}^{\infty} \frac{s(2^n x)}{2^n}", color=RED)
         
         self.play(Write(takagi_function_LaTex_two), run_time=2)
@@ -81,7 +77,6 @@ class TakagiFunction(Scene):
         self.play(Write(axes), run_time=2)
         self.play(Write(takagi_function), run_time=2)
         self.play(FadeOut(takagi_function, takagi_function_LaTex_two), run_time=2)
-        
 
         takagi_function_LaTex_internal = MathTex(r"f(x) = \frac{s(2^n x)}{2^n}, \text{  }s(x) = \min_{n \in \mathbb{Z}} |x - n|", color=YELLOW).scale(0.7)
         takagi_function_LaTex_internal.to_edge(RIGHT + UP)
